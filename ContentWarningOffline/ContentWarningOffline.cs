@@ -15,7 +15,6 @@ namespace ContentWarningOffline
     {
         private void Awake()
         {
-            // Set up plugin logging
             Logger.LogInfo(@"
  ██ ▄█▀ ██▓ ██▀███   ██▓  ▄████  ██▓ ██▀███   ██▓
  ██▄█▒ ▓██▒▓██ ▒ ██▒▓██▒ ██▒ ▀█▒▓██▒▓██ ▒ ██▒▓██▒
@@ -32,7 +31,6 @@ namespace ContentWarningOffline
             var harmony = new Harmony("kirigiri.contentwarning.offline");
             harmony.PatchAll();
 
-            // Optionally log that the patch has been applied
             Logger.LogInfo("Made with <3 By Kirigiri \nhttps://discord.gg/TBs8Te5nwn");
         }
 
@@ -61,7 +59,6 @@ namespace ContentWarningOffline
             {
                 string forcedResponse = "VersionOK";
 
-                // Use reflection to call private/protected method CheckResult
                 MethodInfo checkResultMethod = typeof(CheckVersionHandler)
                     .GetMethod("CheckResult", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
 
@@ -95,7 +92,7 @@ namespace ContentWarningOffline
                     () => { }
                 );
 
-                return false; // Skip original JoinRandom()
+                return false;
             }
         }
     }
