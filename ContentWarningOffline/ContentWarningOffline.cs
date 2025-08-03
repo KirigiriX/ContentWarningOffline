@@ -54,14 +54,14 @@ namespace ContentWarningOffline
 
             private static IEnumerator ForcedCoroutine(CheckVersionHandler instance)
             {
-                string fKirigiriResponse = "VersionOK";
+                string KirigiriResponse = "VersionOK";
 
                 MethodInfo checkResultMethod = typeof(CheckVersionHandler)
                     .GetMethod("CheckResult", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
 
                 if (checkResultMethod != null)
                 {
-                    checkResultMethod.Invoke(instance, new object[] { fKirigiriResponse });
+                    checkResultMethod.Invoke(instance, new object[] { KirigiriResponse });
                 }
                 else
                 {
